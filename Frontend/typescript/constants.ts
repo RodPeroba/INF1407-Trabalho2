@@ -1,0 +1,1 @@
+const backendAdress = 'http://localhost:8000';

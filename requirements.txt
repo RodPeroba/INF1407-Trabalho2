@@ -1,0 +1,7 @@
+django
+djangorestframework
+pillow
+setuptools
+django-cors-headers
+drf-yasg
+coreapi
