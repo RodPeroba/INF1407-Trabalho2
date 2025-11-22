@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-$b=_(x^r$ycfkol9y3ze5bun$5qp+kz3%$^z7@q$l9t3ionlr2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "https://localhost:8000",
+]
 
 
 # Application definition
@@ -41,6 +46,10 @@ INSTALLED_APPS = [
     'corsheaders', # Acessar dominios diferentes pelo navegador
     'drf_yasg', # Documentação da API
     'coreapi', # Documentação da API
+    # Apps
+    'comprador',
+    'vendedor',
+    'produto',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +144,7 @@ REST_FRAMEWORK = {
     ]
 }
 
+'''
 # Para permitir CORS
 CORS_ORIGIN_WHITELIST = [
     'http://0.0.0.0:8080',
@@ -142,3 +152,10 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080',
     # Adicione outras origens permitidas, se necessário
 ]
+'''
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Configurações para o Swagger
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+}

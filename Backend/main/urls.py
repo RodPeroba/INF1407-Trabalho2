@@ -22,8 +22,9 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework.schemas import get_schema_view
 from drf_yasg.views import get_schema_view as yasg_schema_view
 from drf_yasg import openapi
+from main import views
 
-
+# TODO Adicionar a url do site no schema_view quando for colocar no ar
 schema_view = yasg_schema_view(
     openapi.Info(
         title="API Documentation",
@@ -37,11 +38,19 @@ schema_view = yasg_schema_view(
 )
 
 urlpatterns = [
+    # Admin site
     path('batata/', admin.site.urls),
+
+    #Apps
+    path('comprador/', include('comprador.urls')),
+    path('vendedor/', include('vendedor.urls')),
 
     # Documentação da API
     path('docs/',include_docs_urls(title='Documentação da API')),
     path('swagger/',schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
     path('api/v1/',include(routers.DefaultRouter().urls)),
-    path('openapi',get_schema_view(title="API para Carros",description="API para obter dados dos carros",),name='openapi-schema'),
+    path('openapi',get_schema_view(title="API para loja e e-commerce",description="API para obter dados da loja de e-commerce",),name='openapi-schema'),
+
+    # Homepage
+    path('',views.HomePage.as_view(), name='homepage'),
 ]
