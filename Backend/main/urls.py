@@ -44,6 +44,7 @@ urlpatterns = [
     #Apps
     path('comprador/', include('comprador.urls')),
     path('vendedor/', include('vendedor.urls')),
+    path("contas/", include("contas.urls")),
 
     # Documentação da API
     path('docs/',include_docs_urls(title='Documentação da API')),
@@ -53,4 +54,7 @@ urlpatterns = [
 
     # Homepage
     path('',views.HomePage.as_view(), name='homepage'),
+    path("pgCategoria/<str:categoria>/", views.PaginaCategoria.as_view(), name="pag_categoria"),
+    path("pgProduto/<int:produto_id>/", views.PaginaProduto.as_view(), name="pag_produto"),
+    path("compraProduto/<int:produto_id>/", views.PaginaProduto.as_view(), name="compra_produto"),
 ]

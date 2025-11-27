@@ -46,10 +46,13 @@ INSTALLED_APPS = [
     'corsheaders', # Acessar dominios diferentes pelo navegador
     'drf_yasg', # Documentação da API
     'coreapi', # Documentação da API
+    'rest_framework.authtoken', # Autenticação via Token
+    'django_rest_passwordreset', # Reset de senha via API
     # Apps
     'comprador',
     'vendedor',
     'produto',
+    'contas',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +124,8 @@ LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
+
 USE_I18N = True
 
 USE_TZ = True
@@ -137,11 +142,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 
 '''
@@ -154,8 +158,3 @@ CORS_ORIGIN_WHITELIST = [
 ]
 '''
 CORS_ALLOW_ALL_ORIGINS = True
-
-# Configurações para o Swagger
-REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-}

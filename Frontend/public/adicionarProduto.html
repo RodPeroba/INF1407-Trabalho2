@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Produto</title>
+    <script src="javascript/constants.js"></script>
+    <script src="javascript/adicionarProduto.js"></script>
+</head>
+<body>
+    <iframe src="cabecalho.html" frameborder="0" style="width:100%; height:60px;"></iframe>
+    <h2>Adicionar Produto</h2>
+    <div>
+        <form id="addProductForm">
+        <table id="addProdutoTable">
+            <tbody>
+                <tr>
+                    <td>Nome do Produto:</td>
+                    <td><input type="text" id="productName" name="nome"></td>
+                </tr>
+                <tr>
+                    <td>Preço:</td>
+                    <td><input type="number" id="productPrice" name="preco" step="0.01"></td>
+                </tr>
+                <tr>
+                    <td>Descrição:</td>
+                    <td><input type="text" id="productDescription" name="descricao"></td>
+                </tr>
+                <tr>
+                    <td>Categoria:</td>
+                    <td><select id="productCategory" name="categoria">
+                        <option value="ELE">Eletrônicos</option>
+                        <option value="ROU">Roupas</option>
+                        <option value="LIV">Livros</option>
+                        <option value="MOV">Móveis</option>
+                        <option value="OUT">Outros</option>
+                    </select></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" id="submitProductButton">Adicionar Produto</button>
+        </form>
+        <div id="message"></div>
+    </div>
+</body>
+</html>
