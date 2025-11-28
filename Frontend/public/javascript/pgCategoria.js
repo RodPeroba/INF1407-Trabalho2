@@ -1,16 +1,18 @@
 "use strict";
 onload = function () {
-    setupHomepage();
+    setupCategoria();
 };
-function setupHomepage() {
-    fetch(backendAddress, {
-        method: 'GET',
+function setupCategoria() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoria = urlParams.get("categoria");
+    fetch(backendAddress + "/pgCategoria/" + categoria + "/", {
+        method: "GET",
         headers: {
-            'Content-Type': 'application/json'
-        }
+            "Content-Type": "application/json",
+        },
     })
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
         // Setup do HTML da homepage
         let container = document.createElement("div");
         let barraSuperior = document.createElement("div");
@@ -30,7 +32,7 @@ function setupHomepage() {
         // Populando o HTML da homepage com os dados recebidos
         // Barra Superior
         let titulo = document.createElement("h1");
-        titulo.textContent = "Bem-vindo à Página Inicial";
+        titulo.textContent = `Bem-vindo à Loja - Categoria: ${minhasCategorias[data.categoria]} `;
         barraSuperior.appendChild(titulo);
         // Coluna Esquerda
         let categorias = document.createElement("h2");
@@ -55,18 +57,17 @@ function setupHomepage() {
         let listaProdutos = document.createElement("ul");
         colunaDireita.appendChild(listaProdutos);
         for (let produto of data.produtos) {
-            let itemProduto = criaProduto(produto);
+            let itemProduto = criaProdutoDaCategoria(produto);
             listaProdutos.appendChild(itemProduto);
         }
         // Rodapé
         rodape.appendChild(document.createTextNode("© 2025 Minha Loja Online"));
     })
-        .catch(error => {
-        console.error('Error fetching categories:', error);
+        .catch((error) => {
+        console.error("Error fetching categories:", error);
     });
 }
-;
-function criaProduto(produto) {
+function criaProdutoDaCategoria(produto) {
     let itemProduto = document.createElement("ul");
     let nomeProduto = document.createElement("div");
     nomeProduto.appendChild(document.createTextNode("Produto: " + produto.nome));

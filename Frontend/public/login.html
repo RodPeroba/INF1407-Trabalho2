@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="javascript/accounts/login.js"></script>
+    <script src="javascript/constants.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <iframe src="cabecalho.html" frameborder="0" width="100%" height="50" id="cabecalho"></iframe>
+    <form>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Usuário:</td>
+                    <td><input type="text" name="username" id="username"></td>
+                </tr>
+                <tr>
+                    <td>Senha:</td>
+                    <td><input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td align="center"><button id="btnLogin">Login</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <a href="criarConta.html">Criar conta</a>  |  
+    <a href="passwordReset.html">Esqueceu a senha?</a>
+    <div id="msg"></div>
+</body>
+
+</html>
