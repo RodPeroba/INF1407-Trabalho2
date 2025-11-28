@@ -44,7 +44,7 @@ urlpatterns = [
     #Apps
     path('comprador/', include('comprador.urls')),
     path('vendedor/', include('vendedor.urls')),
-    path("contas/", include("contas.urls")),
+    path('contas/', include('contas.urls')),
 
     # Documentação da API
     path('docs/',include_docs_urls(title='Documentação da API')),

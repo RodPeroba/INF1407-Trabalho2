@@ -1,5 +1,22 @@
-<a href="/" target="_top">Inicio</a>
-<a href="adicionarProduto.html" target="_top">Adicionar Produto</a>
-<a href="login.html" target="_top">Login</a>
-<div id="info"></div>
-<hr>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <script src="javascript/constants.js"></script>
+    <script src="javascript/accounts/autenticacao.js"></script>
+    <link rel="stylesheet" href="css/cabecalho.css">
+  </head>
+  <body>
+    <a href="/" target="_top">Inicio</a>
+    <div id="unlogged" class="visivel">
+      | <a href="login.html" target="_top">Login</a>
+    </div>
+    <div id="logged" class="invisivel">
+      | <a href="adicionarProduto.html" target="_top">Adicionar Produto</a>
+      | <a href="passwordChange.html" target="_top">Troca senha</a> 
+      | <a href="logout.html" target="_top">Logout</a>
+    </div>
+    | Você é
+    <div id="identificacao" class="mesmaLinha"></div>
+    <hr />
+  </body>
+</html>

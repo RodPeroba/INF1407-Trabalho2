@@ -5,7 +5,7 @@ onload = () => {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const msg = document.getElementById('msg');
-        fetch(backendAddress + 'contas/token-auth/', {
+        fetch(backendAddress + '/contas/token-auth/', {
             method: 'POST',
             body: JSON.stringify({
                 'username': username,

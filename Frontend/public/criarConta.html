@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <script src="javascript/accounts/login.js"></script>
+    <title>Criar Conta</title>
+    <script src="javascript/accounts/criarConta.js"></script>
     <script src="javascript/constants.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -24,14 +24,30 @@
                     <td><input type="password" name="password" id="password"></td>
                 </tr>
                 <tr>
-                    <td align="center"><button id="btnLogin">Login</button></td>
+                    <td>Confirme a senha:</td>
+                    <td><input type="password" name="confirmPassword" id="confirmPassword"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td>Grupo:</td>
+                    <td>
+                        <select name="group" id="group">
+                            <option value="1">Vendedor</option>
+                            <option value="2">Comprador</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button id="btnCriarConta">Criar conta</button></td>
                 </tr>
             </tbody>
         </table>
     </form>
-    <a href="criarConta.html">Criar conta</a>  |  
-    <a href="passwordReset.html">Esqueceu a senha?</a>
     <div id="msg"></div>
 </body>
 
+</html>
 </html>

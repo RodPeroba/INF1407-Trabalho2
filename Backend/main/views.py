@@ -46,7 +46,7 @@ class PaginaCategoria(APIView):
     @swagger_auto_schema(
         operation_description="Retorna a lista de produtos filtrados por categoria.",
         responses={
-            200: ProdutoSerializer(many=True),
+            200: ProdutoSerializer,
             404: 'Not Found'
         }
     )
@@ -81,8 +81,8 @@ class PaginaProduto(APIView):
     @swagger_auto_schema(
         operation_description="Retorna os detalhes de um produto específico.",
         responses={
-            200: ProdutoSerializer,
-            400: ProdutoSerializer.errors,
+            200: ProdutoSerializer(many=True),
+            400: ProdutoSerializer,
             404: 'Not Found'
         }
     )

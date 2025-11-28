@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
                 objDiv.classList.add('invisivel');
             }
             const spanElement = document.getElementById('identificacao') as HTMLSpanElement;
-            spanElement.innerHTML = usuario.username;
+            spanElement.appendChild(document.createTextNode(usuario.username));
         })
     })
     .catch(erro => {
